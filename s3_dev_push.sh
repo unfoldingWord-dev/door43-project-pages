@@ -6,8 +6,6 @@
 #  See LICENSE file for details.
 
 BKT="s3://test-door43-projects/"
+SOURCE="./"
 
-s3cmd --rr -M -F \
-    --no-mime-magic --delete-removed \
-    --add-header="Cache-Control:max-age=600" \
-    "$SOURCE" "$BKT"
+s3cmd sync --exclude-from s3_excludes "$SOURCE" "$BKT"
