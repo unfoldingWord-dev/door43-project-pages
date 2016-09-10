@@ -46,6 +46,8 @@ $(document).ready(function(){
 
           statusIcon = '';
           switch(log.status){
+            case 'requested': statusIcon = 'fa-spinner';
+                  break;
             case 'started': statusIcon = 'fa-spinner';
                   break;
             case 'success': statusIcon = 'fa-check-circle-o';
