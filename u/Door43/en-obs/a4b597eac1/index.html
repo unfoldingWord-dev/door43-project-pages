@@ -11,12 +11,10 @@
   <meta name="description" content="unrestricted biblical content in every language">
   <meta name="keywords" content="">
 
-  <link rel="stylesheet" type="text/css" href="../../../css/main.css" media="screen">
-  <link rel="stylesheet" type="text/css" href="../../../css/print.css" media="print">
+  <link rel="stylesheet" type="text/css" href="../../../../css/main.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="../../../../css/print.css" media="print">
 
-  <link rel="canonical" href="https://s3-us-west-2.amazonaws.com/test-door43.org/u/Door43/1b46f72ef7">
-
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <!-- link rel="stylesheet" href="../../../../css/font-awesome.min.css" -->
 
   <!-- <link rel="" href="/favicon.ico" type="image/x-icon"> -->
 
@@ -162,10 +160,11 @@
     <div class="clearfix"></div>
   </div>
 </footer>
-<script type="text/javascript" src="../../../js/jquery.min.js"></script>
-<script type="text/javascript" src="../../../js/bootstrap/bootstrap.min.js"></script>
-<script type="text/javascript" src="../../../js/parallax.min.js"></script>
-<script type="text/javascript" src="../../../js/application.js"></script>
+<script type="text/javascript" src="../../../../js/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../js/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../../../js/parallax.min.js"></script>
+<script type="text/javascript" src="../../../../js/application.js"></script>
+<script type="text/javascript" src="../../../../js/commit-page.js"></script>
 <script type="text/javascript">
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-60106521-4']);
@@ -175,60 +174,6 @@
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
-
-
-      $(document).ready(function(){
-        $.getJSON( "build_log.json", function(myLog) {
-          var myCommitId = myLog.commit_id.substring(0, 10);
-          console.log(myCommitId);
-          $.getJSON("../project.json", function (project) {
-                    $.each(project.commits, function (timestamp, commitId) {
-                      date = new Date(timestamp);
-                      var options = {
-                        year: "numeric",
-                        month: "short",
-                        day: "numeric",
-                        hour: "numeric",
-                        minute: "numeric",
-                        timeZone: "UTC"
-                      };
-                      dateStr = date.toLocaleString("en-US", options);
-                      $.getJSON("../"+commitId+"/build_log.json", function(log) {
-                        var html = '<tr><td>';
-                        if(commitId == myCommitId)
-                          html += '<b>'+dateStr+'</b>';
-                        else
-                          html += '<a href="../' + commitId + '">' + dateStr + '</a>';
-                        html += '</td><td><i class="fa ';
-                        switch(log.status){
-                          case 'started': html += 'fa-spinner';
-                                break;
-                          case 'success': html += 'fa-check-circle-o';
-                                break;
-                          case 'warnings': html += 'fa-exclamation';
-                                break;
-                          case 'critical': html += 'fa-times-circle-o';
-                                break;
-                          case 'failed':
-                          default: html += 'fa-chain-broken';
-                                break;
-                        }
-                        html += '"></i></td></tr>';
-                        $('#revisions').append(html);
-                      });
-                    });
-                  })
-                  .done(function () {
-                    console.log("second success");
-                  })
-                  .fail(function () {
-                    console.log("error");
-                  })
-                  .always(function () {
-                    console.log("complete");
-                  });
-        });
-      });
 </script>
 
 
