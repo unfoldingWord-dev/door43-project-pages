@@ -68,10 +68,9 @@
   font-weight: bold;
   src: local("Noto Sans Khmer"), local("NotoSansKhmer");
   src: url("../fonts/noto/notosanskhmer-bold.woff2") format("woff2"), url("../fonts/noto/notosanskhmer-bold.woff") format("woff"); }
+
 * {
-  font-family: NotoSans, sans-serif;
-  font-style: normal;
-  font-weight: 400; }
+  font-family: NotoSans, sans-serif;}
 
 :lang(am),
 :lang(gez),
