@@ -1,6 +1,7 @@
 # These files will be excluded when syncing to S3
 .gitignore
 .git/
+.idea/
 s3_dev_push.sh
 s3_excludes
 logs/
