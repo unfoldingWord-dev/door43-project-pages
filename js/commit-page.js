@@ -31,7 +31,17 @@ $(document).ready(function(){
     var myCommitId = myLog.commit_id.substring(0, 10);
     console.log("Building sidebar for "+myCommitId);
     $.getJSON("../project.json", function (project) {
-      $.each(project.commits, function (timestamp, commitId) {
+      commits = project.commits; // break out commits as array of objects
+      var commitKeys = Object.keys(commits); // grab its keys
+      var sortedCommits = {};
+      commitKeys.sort();
+      commitKeys.reverse(); 
+
+      for(k of commitKeys) { // reorder objects
+        sortedCommits[k] = commits[k];
+      }
+
+      $.each(sortedCommits, function (timestamp, commitId) {
         $.getJSON("../"+commitId+"/build_log.json", function(log) {
           date = new Date(log.request_timestamp);
           var options = {
