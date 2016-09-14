@@ -32,7 +32,7 @@ $(document).ready(function(){
     console.log("Building sidebar for "+myCommitId);
     $.getJSON("../project.json", function (project) {
       commits = project.commits; // break out commits as array of objects
-      var numericCommits = {}
+      var numericCommits = {};
       var numericDate;
 
       for(ky of commits) { // convert date to ms for sorting
