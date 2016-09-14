@@ -32,13 +32,21 @@ $(document).ready(function(){
     console.log("Building sidebar for "+myCommitId);
     $.getJSON("../project.json", function (project) {
       commits = project.commits; // break out commits as array of objects
-      var commitKeys = Object.keys(commits); // grab its keys
+      var numericCommits = {}
+      var numericDate;
+
+      for(ky of commits) { // convert date to ms for sorting
+        numericDate = Date.parse( ky );
+        numericCommits[numericDate] = commits[ky];      
+      }
+
+      var commitKeys = Object.keys(numericCommits); // grab its keys
       var sortedCommits = {};
       commitKeys.sort();
       commitKeys.reverse(); 
 
-      for(k of commitKeys) { // reorder objects
-        sortedCommits[k] = commits[k];
+      for(ky of commitKeys) { // reorder objects
+        sortedCommits[k] = numericCommits[k];
       }
 
       $.each(sortedCommits, function (timestamp, commitId) {
