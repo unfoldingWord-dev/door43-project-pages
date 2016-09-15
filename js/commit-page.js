@@ -30,24 +30,43 @@ $(document).ready(function(){
   $.getJSON( "build_log.json", function(myLog) {
     var myCommitId = myLog.commit_id.substring(0, 10);
     console.log("Building sidebar for "+myCommitId);
+
     $.getJSON("../project.json", function (project) {
-      commits = project.commits; // break out commits as array of objects
+      projectCommits = project.commits; 
+      // projectCommits are key:value pairs of date:hash
+      // problem: date strings are not sortable for various reasons
+      // answer: convert dates to ms then sort then convert them back
+      //console.log("projectCommits: " + JSON.stringify(projectCommits));
       var numericCommits = {};
       var numericDate;
 
-      for(ky of commits) { // convert date to ms for sorting
-        numericDate = Date.parse( ky );
-        numericCommits[numericDate] = commits[ky];      
+      projectKeys = Object.keys(projectCommits);
+      //console.log("projectKeys: " + JSON.stringify(projectKeys));
+     
+      for(var k of projectKeys) {
+        numericDate = Date.parse( k );
+        //console.log("date key: " + k + " ms: " + numericDate);
+        numericCommits[numericDate] = projectCommits[k];      
       }
-
+      
+      // now we have numericdate:hash 
+      // get its keys and sort them latest first
+      //console.log("numericCommits: " + JSON.stringify(numericCommits));
+    
       var commitKeys = Object.keys(numericCommits); // grab its keys
+      //console.log("commitKeys: " + JSON.stringify(commitKeys));
       var sortedCommits = {};
       commitKeys.sort();
+      //console.log("commitKeys sorted: " + JSON.stringify(commitKeys));
       commitKeys.reverse(); 
+      console.log("commitKeys reversed: " + JSON.stringify(commitKeys));
 
-      for(ky of commitKeys) { // reorder objects
+      for(var k of commitKeys) { // reorder objects
+        console.log("k: " + k);
         sortedCommits[k] = numericCommits[k];
       }
+
+      console.log("sortedCommits: " + JSON.stringify(sortedCommits));
 
       $.each(sortedCommits, function (timestamp, commitId) {
         $.getJSON("../"+commitId+"/build_log.json", function(log) {
