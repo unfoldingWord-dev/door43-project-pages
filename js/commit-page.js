@@ -6,7 +6,7 @@ $(document).ready(function(){
     $('#left-sidebar').html('<div><h1>Revisions</h1><table width="100%" id="revisions"></table></div>');
 
     $.getJSON("https://s3-us-west-2.amazonaws.com/test-door43.org/u/d43/en-obs/project.json", function (project) {
-      $.each(project.commits, function (index, commit) {
+      $.each(project.commits.reverse(), function (index, commit) {
         date = new Date(commit.created_at);
         var options = {
           year: "numeric",
