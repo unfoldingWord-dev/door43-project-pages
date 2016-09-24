@@ -1,4 +1,12 @@
 $(document).ready(function(){
+  var parent_url = window.location.href.split('?')[0].split('/').slice(0,-2).join('/');
+
+  var request;
+  if(window.XMLHttpRequest)
+    request = new XMLHttpRequest();
+  else
+    request = new ActiveXObject("Microsoft.XMLHTTP");
+
   $.getJSON( "build_log.json", function(myLog) {
     var myCommitId = myLog.commit_id.substring(0, 10);
     console.log("Building sidebar for "+myCommitId);
@@ -7,6 +15,12 @@ $(document).ready(function(){
 
     $.getJSON("../project.json", function (project) {
       $.each(project.commits.reverse(), function (index, commit) {
+	request.open('GET', parent_url+"/"+commit.id+"/01.html", false);
+	request.send();
+        if (request.status === 404) {
+           return true;
+        }
+
         date = new Date(commit.created_at);
         var options = {
           year: "numeric",
