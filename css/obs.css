@@ -1,0 +1,42 @@
+/**
+ * Style for OBS pages
+ */
+div.obs-header-title h1 {
+  margin: 0; 
+}
+div.obs-header-title h1 span.obs-favorite-icon i {
+    font-size: 26px;
+    vertical-align: middle;
+    color: #000;
+}
+div.obs-header-title h1 span.obs-favorite-icon.favorite i {
+    color: #3ebcfe;
+}
+div.obs-header-title h1 span.obs-build-status-icon {
+    font-size: 40px;
+    font-weight: 300;
+    vertical-align: middle;
+}
+div.obs-header-title h1 span.obs-build-status-icon:hover {
+      color: #3ebcfe;
+}
+
+div.obs-info {
+  margin: 0 0 12px 35px;
+  font-size: 16px;
+}
+div.obs-info span#last-updated {
+    font-weight: 400;
+    font-style: italic;
+    margin-right: 30px;
+}
+
+#revisions a {
+  color: #000000;
+  text-decoration: none;
+}
+#revisions a:hover, #revisions a:focus {
+  color: #00bcff;
+  font-weight: bold;
+  text-decoration: none;
+}
