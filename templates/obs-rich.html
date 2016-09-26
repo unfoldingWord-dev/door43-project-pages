@@ -20,7 +20,8 @@
 
 
 <body itemscope="itemscope" itemtype="http://schema.org/WebPage">
-<link rel="stylesheet" type="text/css" href="/css/obs-rich.css">
+<link rel="stylesheet" type="text/css" href="/css/obs.css">
+<link rel="stylesheet" type="text/css" href="/css/commit-page.css">
 
 <header class="site-header" role="banner" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
@@ -62,21 +63,21 @@
     <main class="content" role="main" itemprop="mainContentOfPage">
         <article itemscope="itemscope" itemtype="http://schema.org/CreativeWork">
             <header>
-                <div class="obs-header-title">
+                <div id="header-title">
                     <h1 itemprop="headline">
-                        <span id="favorite-icon"><i class="fa fa-star-o"></i></span>
+                        <span id="starred-icon"><i class="fa fa-star-o"></i></span>
                         <span id="obs-h1">Header</span>
                         <span id="build-status-icon"><i class="fa fa-question-circle"></i></span>
                     </h1>
                 </div>
-                <div class="obs-info">
-                    <span id="last-updated">Updated ? hours ago</span>
-                    <span id="views-icon"><i class="fa fa-eye"></i></span>
-                    <span id="views">? views</span>
+                <div id="sub-header">
+                    <span id="last-updated">Updated 1 hour ago</span>
+                    <span id="views"><i class="fa fa-eye"></i></span>
+                    <span id="num-of-views">? views</span>
                 </div>
             </header>
             <div class="page-content row">
-                <div class="col-md-3 sidebar" role="complementary">
+                <div id="left-sidebar" class="col-md-3 sidebar" role="complementary">
                     <div id="obs-sidebar">
                         { sidebar }
                     </div>
@@ -116,8 +117,8 @@
 <script type="text/javascript" src="/js/bootstrap/bootstrap.min.js"></script>
 <script type="text/javascript" src="/js/parallax.min.js"></script>
 <script type="text/javascript" src="/js/application.js"></script>
-<script type="text/javascript" src="https://s3-us-west-2.amazonaws.com/test-door43.org/js/general-tools.js"></script>
-<script type="text/javascript" src="https://s3-us-west-2.amazonaws.com/test-door43.org/js/commit-page.js"></script>
+<script type="text/javascript" src="/js/general-tools.js"></script>
+<script type="text/javascript" src="/js/commit-page.js"></script>
 <script type="text/javascript">
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-60106521-4']);

@@ -1,0 +1,33 @@
+/**
+ * Style for commit pages
+ */
+#header-title h1 {
+  margin: 0;
+}
+#header-title h1 #starred-icon i {
+    font-size: 26px;
+    vertical-align: middle;
+    color: #000000;
+}
+#header-title h1 #starred-icon.starred i {
+    color: #3ebcfe;
+}
+#header-title h1 #build-status-icon i {
+    font-size: 40px;
+    font-weight: 300;
+    vertical-align: middle;
+}
+
+#header-title h1 #build-status-icon i:hover {
+    color: #3ebcfe;
+}
+
+#sub-header {
+  margin: 0 0 12px 35px;
+  font-size: 16px;
+}
+#last-updated {
+    font-weight: 400;
+    font-style: italic;
+    margin-right: 30px;
+}

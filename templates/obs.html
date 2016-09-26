@@ -21,6 +21,7 @@
 
 <body itemscope="itemscope" itemtype="http://schema.org/WebPage">
 <link rel="stylesheet" type="text/css" href="/css/obs.css">
+<link rel="stylesheet" type="text/css" href="/css/commit-page.css">
 
 <header class="site-header" role="banner" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
@@ -58,30 +59,28 @@
 </div>
 
 
-<div class="content-container container">
+<div class="content-container container obs-container">
     <main class="content" role="main" itemprop="mainContentOfPage">
         <article itemscope="itemscope" itemtype="http://schema.org/CreativeWork">
             <header>
-                <div class="obs-header-title">
+                <div id="header-title">
                     <h1 itemprop="headline">
-                        <span id="favorite-icon"><i class="fa fa-star-o"></i></span>
-                        <span id="obs-h1">Header</span>
-                        <span id="build-status-icon"><i class="fa fa-question-circle-o"></i></span>
+                        <span id="starred-icon"><i class="fa fa-star-o"></i></span>
+                        <span id="h1">Header</span>
+                        <span id="build-status-icon"><i class="fa fa-question-circle"></i></span>
                     </h1>
                 </div>
-                <div class="obs-info">
-                    <span id="last-updated">Updated ? hours ago</span>
-                    <span id="views-icon"><i class="fa fa-eye"></i></span>
-                    <span id="views">? views</span>
+                <div id="sub-header">
+                    <span id="last-updated">Updated 1 hour ago</span>
+                    <span id="views"><i class="fa fa-eye"></i></span>
+                    <span id="num-of-views">? views</span>
                 </div>
             </header>
             <div class="page-content row">
-                <div class="col-md-3 sidebar" role="complementary">
-                    <div id="obs-sidebar">
-                        { sidebar }
-                    </div>
+                <div id="left-sidebar" class="col-md-3 sidebar" role="complementary">
+                    { sidebar }
                 </div>
-                <div class="col-md-9" role="main" id="obs-content">
+                <div class="col-md-9" role="main" id="content">
                     { content }
                 </div>
             </div>
